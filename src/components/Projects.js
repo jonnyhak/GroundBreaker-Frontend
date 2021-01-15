@@ -6,6 +6,7 @@ class Projects extends Component {
         return (
             <div>
                 <p>Project List</p>
+                
             </div>
         )
     }
