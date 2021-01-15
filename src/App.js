@@ -1,36 +1,21 @@
 import React, { Component } from 'react'
 import { Switch, Route } from 'react-router-dom'
-import Projects from './components/Projects'
+import MainContainer from './components/MainContainer'
+import ProjectShow from './components/ProjectShow'
 import './App.css';
 
 class App extends Component {
   
-  state = {
-    projects: []
-  }
+  
 
-  componentDidMount() {
-    fetch('http://localhost:3000/projects')
-      .then(response => {
-        return response.json()
-      })
-      .then(arr => {
-        this.setState({
-          projects: arr
-        })
-      })
-  }
   
   render() {
     console.log(this.state)
     return (
       <div className="App">
         <Switch>
-          <Route path="/projects" render={() => 
-              <Projects projects={this.state.projects}/>
-            }
-          />
-
+          <Route path="/projects/:id" id={this.props.id} component={ProjectShow}/>
+          <Route path="/" component={MainContainer}/>
         </Switch>
       </div>
     );
