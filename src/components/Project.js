@@ -1,6 +1,7 @@
 
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
+import ProjectShow from './ProjectShow'
 
 
 class Project extends Component {
