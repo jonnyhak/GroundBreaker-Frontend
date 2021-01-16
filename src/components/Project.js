@@ -6,9 +6,6 @@ import ProjectShow from './ProjectShow'
 
 class Project extends Component {
 
-    localClickHandler = () => {
-        console.log(this.props.project)
-    }
     render() {
         return (
             <div>
