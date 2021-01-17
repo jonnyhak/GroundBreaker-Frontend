@@ -6,18 +6,40 @@ import SearchForm from './SearchForm'
 class Projects extends Component {
     
     state = {
-        searchByLocation: ""
+        searchByLocation: "",
+        searchByMinInvestment: "",
+        searchByDevName: ""
     }
     
     onChange = (e) => {
         this.setState({[e.target.name]: e.target.value})
     }
 
+    onClear = () => {
+        this.setState({
+            searchByLocation: "",
+            searchByMinInvestment: "",
+            searchByDevName: ""
+        })
+    }
+
     allProjects = () => {
         let filteredProjects
-        if (this.state.searchByLocation !== "") {
+        if (this.state.searchByLocation !== "" && this.state.searchByMinInvestment !== "") {
+            filteredProjects = this.props.projects.filter((project) => 
+                project.location.toLowerCase().includes(this.state.searchByLocation.toLowerCase()) && project.minimum_investment <= this.state.searchByMinInvestment
+            )
+        } else if (this.state.searchByLocation !== "") {
             filteredProjects = this.props.projects.filter((project) => 
                 project.location.toLowerCase().includes(this.state.searchByLocation.toLowerCase())
+            )
+        } else if (this.state.searchByMinInvestment !== "") {
+            filteredProjects = this.props.projects.filter((project) => 
+                project.minimum_investment <= this.state.searchByMinInvestment
+            )
+        } else if (this.state.searchByDevName !== "") {
+            filteredProjects = this.props.projects.filter((project) => 
+                project.developer_name.toLowerCase().includes(this.state.searchByDevName.toLowerCase())
             )
         } else {
             filteredProjects = this.props.projects
@@ -26,13 +48,17 @@ class Projects extends Component {
     }
     
     render() {
-        console.log(this.allProjects())
+        // console.log(this.allProjects())
+        console.log(this.state)
         return (
             <div>
-                <p>Project List</p>
+                <h2>Project List</h2>
                 <SearchForm 
                     searchByLocation={this.state.searchByLocation}
+                    searchByMinInvestment={this.state.searchByMinInvestment}
+                    searchByDevName={this.state.searchByDevName}
                     changeHandler={this.onChange}
+                    clearHandler={this.onClear}
                 />
                 {
                     this.allProjects().map((project) => (
