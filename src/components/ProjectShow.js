@@ -34,9 +34,15 @@ class ProjectShow extends React.Component  {
         this.setState({investClicked: !this.state.investClicked})
     }
 
-    // projectInvestments = () => {
-    //     this.state.project.investments.map(inv => <li>{inv.amount}</li>)
-    // }
+    projectInvestments = () => {
+        return this.state.project.investments.map(inv => 
+                <li>
+                    {inv.date} Amount: {inv.amount}
+                    <button onClick={this.onDelete} value={inv.id}>Delete Investment</button>
+                </li>
+            )
+    }
+
     onDelete = (e) => {  
         let id = e.target.value
         fetch(`http://localhost:3000/investments/${id}`, {
@@ -70,13 +76,14 @@ class ProjectShow extends React.Component  {
                         <InvestmentForm project={this.state.project} /> 
                         : null }
                     <ul>
-                        {this.state.project.investments.map(inv => 
+                        {/* {this.state.project.investments.map(inv => 
                             <>
-                                <li>{inv.date} {inv.amount}
+                                <li>{inv.date} Amount: {inv.amount}
                                 <button onClick={this.onDelete} value={inv.id}>Delete Investment</button>
                                 </li>
                             </>
-                        )}
+                        )} */}
+                        {this.projectInvestments()}
                     </ul>
             </div>
                 : <h1>Loading...</h1>}
