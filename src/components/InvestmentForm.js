@@ -15,7 +15,8 @@ class InvestmentForm extends Component {
 
     //eventually need automatic rendering withou refresh
     submitHandler = (e) => {
-        // e.preventDefault()
+        e.preventDefault()
+
         fetch('http://localhost:3000/investments', {
             method: "POST",
             headers: {"Content-Type": "application/json"},
@@ -29,7 +30,7 @@ class InvestmentForm extends Component {
             .then(response => {
                 return response.json()
             })
-            .then(console.log)
+            .then(investmentObj => this.props.addInvestment(investmentObj))
     }
     
     
