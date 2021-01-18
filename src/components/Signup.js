@@ -44,7 +44,7 @@ class Signup extends Component {
         console.log(this.state)
         return (
             <div>
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={this.submitHandler}>
                     <input
                         type="username"
                         name="username"

@@ -16,21 +16,27 @@ class InvestmentForm extends Component {
     //eventually need automatic rendering withou refresh
     submitHandler = (e) => {
         e.preventDefault()
+        
+        if (this.state.amount >= this.props.project.minimum_investment) {
 
-        fetch('http://localhost:3000/investments', {
-            method: "POST",
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({
-                date: new Date(),
-                amount: this.state.amount,
-                user_id: 16,
-                project_id: this.props.project.id
+            
+            fetch('http://localhost:3000/investments', {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({
+                    date: new Date(),
+                    amount: this.state.amount,
+                    user_id: 19,
+                    project_id: this.props.project.id
+                })
             })
-        })
             .then(response => {
                 return response.json()
             })
             .then(investmentObj => this.props.addInvestment(investmentObj))
+        } else {
+            window.alert(`Minimum investment is ${this.props.project.minimum_investment}`)
+        }
     }
     
     
