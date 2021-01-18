@@ -1,6 +1,7 @@
 
 import React, { Component } from 'react'
 import Projects from './Projects'
+import Signup from './Signup'
 
 class MainContainer extends Component {
     
@@ -25,8 +26,8 @@ class MainContainer extends Component {
         console.log(this.state)
         return (
             <div>
-
-                 <Projects  projects={this.state.projects}/>
+                <Signup />
+                <Projects  projects={this.state.projects}/>
                 
             </div>
         )

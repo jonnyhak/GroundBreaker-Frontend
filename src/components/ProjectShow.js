@@ -4,7 +4,6 @@ import {useParams} from 'react-router-dom'
 import InvestmentForm from './InvestmentForm'
 import { Line, Circle } from 'rc-progress'
 import ProjectImageSlider from './ProjectImageSlider'
-import SimpleImageSlider from "react-simple-image-slider"
 
 class ProjectShow extends React.Component  {
     
