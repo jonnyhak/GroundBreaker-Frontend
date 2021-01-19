@@ -4,8 +4,7 @@ class Login extends Component {
     
     state = {
       username: "",
-      password: "",
-      loginErrors: ""
+      password: ""
     };
 
     onChange = (e) => {
@@ -17,6 +16,9 @@ class Login extends Component {
     submitHandler = (e) => {
         e.preventDefault()
 
+
+        this.props.loginUser(this.state)
+        
         console.log(this.state)
         // if (this.state.password === this.state.password_confirmation) {
 

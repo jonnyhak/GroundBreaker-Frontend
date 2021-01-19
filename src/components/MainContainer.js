@@ -8,37 +8,43 @@ class MainContainer extends Component {
     
     state = {
         projects: [],
-        users: []
+        users: [],
+        currentUser: null
     }
 
-  componentDidMount() {
-    fetch('http://localhost:3000/projects')
-      .then(response => {
-        return response.json()
-      })
-      .then(arr => {
-        this.setState({
-          projects: arr
+    componentDidMount() {
+        fetch('http://localhost:3000/projects')
+        .then(response => {
+            return response.json()
         })
-      })
+        .then(arr => {
+            this.setState({
+            projects: arr
+            })
+        })
 
-    fetch('http://localhost:3000/users')
-      .then(response => {
-        return response.json()
-      })
-      .then(arr => {
-        this.setState({
-          users: arr
+        fetch('http://localhost:3000/users')
+        .then(response => {
+            return response.json()
         })
-      })
-  }
+        .then(arr => {
+            this.setState({
+            users: arr
+            })
+        })
+    }
+
+    loginUser = (userObj) => {
+        this.setState({currentUser: userObj.username})
+    }
+
     
     
     render() {
         console.log(this.state)
         return (
             <div>
-                <Login users={this.state.users}/>
+                <Login users={this.state.users} loginUser={this.loginUser}/>
                 <Signup />
                 <Projects  projects={this.state.projects}/>
             </div>
