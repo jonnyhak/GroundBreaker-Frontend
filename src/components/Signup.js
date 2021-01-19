@@ -32,7 +32,7 @@ class Signup extends Component {
             .then(response => {
                 return response.json()
             })
-            .then(console.log)
+            .then(userObj => this.props.loginUser(userObj))
             // .then(investmentObj => this.props.addInvestment(investmentObj))
         } else {
             window.alert("password confirmation must match")

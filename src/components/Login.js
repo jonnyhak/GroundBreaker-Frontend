@@ -16,21 +16,23 @@ class Login extends Component {
     submitHandler = (e) => {
         e.preventDefault()
 
+        let currentUser = this.props.users.find(user => 
+            user.username == this.state.username && user.password == this.state.password
+        )
 
-        this.props.loginUser(this.state)
+        // this.props.loginUser(this.state)
         
-        console.log(this.state)
-        // if (this.state.password === this.state.password_confirmation) {
-
-            
-        // } else {
-        //     window.alert("password confirmation must match")
-        // }
+        if (currentUser) {
+            // console.log(currentUser)
+            this.props.loginUser(currentUser)
+        } else {
+            window.alert("invalid username or password")
+        }
     }
     
     
     render() {
-        // console.log(this.props)
+        
         return (
             <div>
                 <form onSubmit={this.submitHandler}>

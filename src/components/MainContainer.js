@@ -35,7 +35,7 @@ class MainContainer extends Component {
     }
 
     loginUser = (userObj) => {
-        this.setState({currentUser: userObj.username})
+        this.setState({currentUser: userObj})
     }
 
     
@@ -44,9 +44,13 @@ class MainContainer extends Component {
         console.log(this.state)
         return (
             <div>
-                <Login users={this.state.users} loginUser={this.loginUser}/>
-                <Signup />
-                <Projects  projects={this.state.projects}/>
+                {!this.state.currentUser ?
+                <>
+                    <Login users={this.state.users} loginUser={this.loginUser}/>
+                    <Signup loginUser={this.loginUser}/>
+                </>
+                    : <Projects  projects={this.state.projects} users={this.state.users}/>
+                }
             </div>
         )
     }

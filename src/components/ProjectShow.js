@@ -4,13 +4,14 @@ import {useParams} from 'react-router-dom'
 import InvestmentForm from './InvestmentForm'
 import { Line, Circle } from 'rc-progress'
 import ProjectImageSlider from './ProjectImageSlider'
+import {Link} from 'react-router-dom'
 
 class ProjectShow extends React.Component  {
     
     state = {
         project: null,
         investClicked: false,
-        investments: null,
+        investments: []
     }
 
     
@@ -20,6 +21,7 @@ class ProjectShow extends React.Component  {
             return response.json()
         })
         .then(data => this.setState({project: data, investments: data.investments}))
+        
     }
 
     capital_raised = () => {
@@ -38,12 +40,15 @@ class ProjectShow extends React.Component  {
     }
 
     projectInvestments = () => {
-        return this.state.investments.map(inv => 
-                <li>
-                    {inv.date} Amount: {inv.amount}
-                    <button onClick={this.onDelete} value={inv.id}>Delete Investment</button>
-                </li>
-            )
+        let sortedInvestments = this.state.investments.sort((a, b) => b.id - a.id)
+        return sortedInvestments.map(inv => 
+            <li>           
+                {inv.date} 
+                <Link to={`/users/${inv.user.id}`}>{inv.user.username}</Link> 
+                Amount: ${inv.amount}
+                <button onClick={this.onDelete} value={inv.id}>Delete Investment</button>
+            </li>
+        )
     }
 
     onDelete = (e) => {  
@@ -89,13 +94,6 @@ class ProjectShow extends React.Component  {
                         <InvestmentForm project={this.state.project} addInvestment={this.addInvestment}/> 
                         : null }
                     <ul>
-                        {/* {this.state.project.investments.map(inv => 
-                            <>
-                                <li>{inv.date} Amount: {inv.amount}
-                                <button onClick={this.onDelete} value={inv.id}>Delete Investment</button>
-                                </li>
-                            </>
-                        )} */}
                         {this.projectInvestments()}
                     </ul>
             </div>

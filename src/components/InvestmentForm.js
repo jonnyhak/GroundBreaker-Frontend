@@ -19,14 +19,13 @@ class InvestmentForm extends Component {
         
         if (this.state.amount >= this.props.project.minimum_investment) {
 
-            
             fetch('http://localhost:3000/investments', {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify({
                     date: new Date(),
                     amount: this.state.amount,
-                    user_id: 19,
+                    user_id: 21,
                     project_id: this.props.project.id
                 })
             })
@@ -34,6 +33,7 @@ class InvestmentForm extends Component {
                 return response.json()
             })
             .then(investmentObj => this.props.addInvestment(investmentObj))
+        
         } else {
             window.alert(`Minimum investment is ${this.props.project.minimum_investment}`)
         }

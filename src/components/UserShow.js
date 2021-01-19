@@ -1,5 +1,6 @@
 
 import React, { Component } from 'react'
+import {Link} from 'react-router-dom'
 
 class UserShow extends Component {
     
@@ -30,9 +31,13 @@ class UserShow extends Component {
     }
 
     userInvestments = () => {
-        return this.state.investments.map(inv => 
+        let sortedInvestments = this.state.investments.sort((a, b) => b.id - a.id)
+        
+        return sortedInvestments.map(inv => 
                 <li>
-                    {inv.date} Amount: {inv.amount}
+                    {inv.date} 
+                    <Link to={`/projects/${inv.project.id}`}>{inv.project.developer_name}</Link> 
+                    Amount: ${inv.amount}
                     {/* <button onClick={this.onDelete} value={inv.id}>Delete Investment</button> */}
                 </li>
             )

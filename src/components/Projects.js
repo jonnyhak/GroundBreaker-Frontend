@@ -49,7 +49,6 @@ class Projects extends Component {
     
     render() {
         // console.log(this.allProjects())
-        console.log(this.state)
         return (
             <div>
                 <h2>Project List</h2>
