@@ -13,6 +13,7 @@ class App extends Component {
       <div className="App">
         <Switch>
           <Route path="/projects/:id" component={ProjectShow}/>
+          {/* <Route path="/projects/:id" render={(routerProps) => <ProjectShow  />}/> */}
           <Route path="/users/:id" component={UserShow}/>
           <Route path="/" component={MainContainer}/>
         </Switch>

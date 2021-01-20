@@ -1,12 +1,12 @@
 
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
+import UserPieChart from './UserPieChart'
 
 class UserShow extends Component {
     
     state = {
         user: null,
-        investClicked: false,
         investments: null,
         projects: null //serializer for userProjects with breakdown by position of each project
     }
@@ -52,6 +52,7 @@ class UserShow extends Component {
                         <h1>User Show</h1>
                         <h1>User: {this.state.user.username}</h1>
                         <h2>Total Position: {this.totalPosition()}</h2>
+                        <UserPieChart investments={this.state.investments}/>
                         {this.userInvestments()}
                     </div> 
 

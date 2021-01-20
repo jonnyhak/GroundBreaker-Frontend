@@ -63,7 +63,8 @@ class Projects extends Component {
                     this.allProjects().map((project) => (
                         < Project 
                             key={project.id}
-                            project={project}   
+                            project={project}
+                            currentUser={this.props.currentUser}   
                         />
                         
                     ))

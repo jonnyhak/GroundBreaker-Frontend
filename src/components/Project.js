@@ -9,7 +9,7 @@ class Project extends Component {
     render() {
         return (
             <div>
-                <Link to={`/projects/${this.props.project.id}`} id={this.props.project.id}>
+                <Link to={`/projects/${this.props.project.id}`} id={this.props.project.id} currentUser={this.props.currentUser}>
                     <div className="project">
                         <h1>{this.props.project.developer_name}</h1>
                         <h2>Location: {this.props.project.location}</h2>

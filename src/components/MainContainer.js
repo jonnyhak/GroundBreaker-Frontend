@@ -49,8 +49,10 @@ class MainContainer extends Component {
                     <Login users={this.state.users} loginUser={this.loginUser}/>
                     <Signup loginUser={this.loginUser}/>
                 </>
-                    : <Projects  projects={this.state.projects} users={this.state.users}/>
+                    : 
+                    <Projects  projects={this.state.projects} users={this.state.users} currentUser={this.state.currentUser}/>
                 }
+                { false ? <ProjectShow currentUser={this.state.currentUser} /> : null }
             </div>
         )
     }

@@ -73,7 +73,7 @@ class ProjectShow extends React.Component  {
     }
 
     render() {
-        console.log(this.state)
+        console.log(this.props)
 
         return (
             <div>
@@ -91,7 +91,7 @@ class ProjectShow extends React.Component  {
                     {/* <h5>Investments: {this.state.project.investments.amount}</h5> */}
                     <button onClick={() => this.localClickHandler()}>Invest!</button>
                     {this.state.investClicked ?
-                        <InvestmentForm project={this.state.project} addInvestment={this.addInvestment}/> 
+                        <InvestmentForm project={this.state.project} addInvestment={this.addInvestment} currentUser={this.props.currentUser}/> 
                         : null }
                     <ul>
                         {this.projectInvestments()}
