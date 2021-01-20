@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import Projects from './Projects'
 import Signup from './Signup'
 import Login from './Login'
+import ProjectShow from './ProjectShow'
 
 class MainContainer extends Component {
     
@@ -38,6 +39,10 @@ class MainContainer extends Component {
         this.setState({currentUser: userObj})
     }
 
+    // loginUser = (userObj) => {
+    //     this.props.loginUser(userObj)
+    // }
+
     
     
     render() {
@@ -47,12 +52,13 @@ class MainContainer extends Component {
                 {!this.state.currentUser ?
                 <>
                     <Login users={this.state.users} loginUser={this.loginUser}/>
+                    OR
                     <Signup loginUser={this.loginUser}/>
                 </>
                     : 
                     <Projects  projects={this.state.projects} users={this.state.users} currentUser={this.state.currentUser}/>
                 }
-                { false ? <ProjectShow currentUser={this.state.currentUser} /> : null }
+                {/* { false ? <ProjectShow currentUser={this.state.currentUser} /> : null } */}
             </div>
         )
     }

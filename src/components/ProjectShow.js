@@ -16,7 +16,7 @@ class ProjectShow extends React.Component  {
 
     
     componentDidMount() {
-        fetch(`http://localhost:3000/projects/${this.props.match.params.id}`)
+        fetch(`http://localhost:3000/projects/${this.props.match.params.id}`) //this.routerProps.match.params.id
         .then(response => {
             return response.json()
         })
@@ -83,8 +83,8 @@ class ProjectShow extends React.Component  {
                     <ProjectImageSlider project={this.state.project}/>
                     <h1>{this.state.project.developer_name}</h1>
                     <h2>Location: {this.state.project.location}</h2>
-                    <Line percent={this.percent()} strokeWidth="4" strokeColor="green" trailWidth="4" />
                     <h3>Total Capital Needed: {this.state.project.total_capital_needed}</h3>
+                    <Line percent={this.percent()} strokeWidth="4" strokeColor="green" trailWidth="4" />
                     <h4>Captial Raised: {this.capital_raised()}</h4>
                     <h4>Minimum Investment: {this.state.project.minimum_investment}</h4>
                     <h4>Projected ROI: {this.state.project.projected_roi}</h4>
