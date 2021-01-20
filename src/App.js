@@ -9,13 +9,13 @@ import './App.css';
 
 class App extends Component {
   
-  // state = {
-  //   currentUser: null
-  // }
+  state = {
+    currentUser: null
+  }
 
-  // loginUser = (userObj) => {
-  //   this.setState({currentUser: userObj})
-  // }
+  loginUser = (userObj) => {
+    this.setState({currentUser: userObj})
+  }
 
   render() {
     // console.log(this.state)
@@ -23,11 +23,11 @@ class App extends Component {
       <div className="App">
         <NavBar />
         <Switch>
-          <Route path="/projects/:id" component={ProjectShow}/>
-          {/* <Route path="/projects/:id" render={() => <ProjectShow currentUser={this.state.currentUser} />}/> */}
+          {/* <Route path="/projects/:id" component={ProjectShow}/> */}
+          <Route path="/projects/:id" render={(props) => <ProjectShow {...props} currentUser={this.state.currentUser} />}/>
           <Route path="/users/:id" component={UserShow}/>
-          <Route path="/" component={MainContainer}/>
-          {/* <Route path="/" render={() => <MainContainer loginUser={this.loginUser()} currentUser={this.state.currentUser}/>}/> */}
+          {/* <Route path="/" component={MainContainer}/> */}
+          <Route path="/" render={() => <MainContainer loginUser={this.loginUser} currentUser={this.state.currentUser}/>}/>
           <Route path="/projects" component={Projects}/>
         </Switch>
       </div>

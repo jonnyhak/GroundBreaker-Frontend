@@ -25,7 +25,7 @@ class InvestmentForm extends Component {
                 body: JSON.stringify({
                     date: new Date(),
                     amount: this.state.amount,
-                    user_id: 27, //currently hardcoded
+                    user_id: this.props.currentUser.id, //currently hardcoded
                     project_id: this.props.project.id
                 })
             })

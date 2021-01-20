@@ -35,13 +35,13 @@ class MainContainer extends Component {
         })
     }
 
-    loginUser = (userObj) => {
-        this.setState({currentUser: userObj})
-    }
-
     // loginUser = (userObj) => {
-    //     this.props.loginUser(userObj)
+    //     this.setState({currentUser: userObj})
     // }
+
+    loginUser = (userObj) => {
+        this.props.loginUser(userObj)
+    }
 
     
     
@@ -49,7 +49,7 @@ class MainContainer extends Component {
         console.log(this.state)
         return (
             <div>
-                {!this.state.currentUser ?
+                {!this.props.currentUser ?
                 <>
                     <Login users={this.state.users} loginUser={this.loginUser}/>
                     OR

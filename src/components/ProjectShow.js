@@ -44,7 +44,7 @@ class ProjectShow extends React.Component  {
         return sortedInvestments.map(inv => 
             <li>           
                 {inv.date} 
-                <Link to={`/users/${inv.user.id}`}>{inv.user.username}</Link> 
+                <Link to={`/users/${inv.user.id}`} key={inv.id}>{inv.user.username}</Link> 
                 Amount: ${inv.amount}
                 <button onClick={this.onDelete} value={inv.id}>Delete Investment</button>
             </li>
