@@ -2,6 +2,7 @@
 import React, { Component } from 'react'
 import Project from './Project'
 import SearchForm from './SearchForm'
+import Map from './Map'
 
 class Projects extends Component {
     
@@ -52,6 +53,7 @@ class Projects extends Component {
         return (
             <div>
                 <h2>Project List</h2>
+                <Map projects={this.allProjects()}/>
                 <SearchForm 
                     searchByLocation={this.state.searchByLocation}
                     searchByMinInvestment={this.state.searchByMinInvestment}

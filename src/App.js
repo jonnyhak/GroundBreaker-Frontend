@@ -5,6 +5,7 @@ import ProjectShow from './components/ProjectShow'
 import UserShow from './components/UserShow'
 import NavBar from './components/NavBar'
 import Projects from './components/Projects'
+import Signup from './components/Signup'
 import './App.css';
 
 class App extends Component {
@@ -17,11 +18,15 @@ class App extends Component {
     this.setState({currentUser: userObj})
   }
 
+  logout = () => {
+    this.setState({currentUser: null}) 
+  }
+
   render() {
     // console.log(this.state)
     return (
       <div className="App">
-        <NavBar />
+        <NavBar currentUser={this.state.currentUser} logout={this.logout}/>
         <Switch>
           {/* <Route path="/projects/:id" component={ProjectShow}/> */}
           <Route path="/projects/:id" render={(props) => <ProjectShow {...props} currentUser={this.state.currentUser} />}/>
@@ -29,6 +34,7 @@ class App extends Component {
           {/* <Route path="/" component={MainContainer}/> */}
           <Route path="/" render={() => <MainContainer loginUser={this.loginUser} currentUser={this.state.currentUser}/>}/>
           <Route path="/projects" component={Projects}/>
+          <Route path="/signup" component={Signup}/>
         </Switch>
       </div>
     );
