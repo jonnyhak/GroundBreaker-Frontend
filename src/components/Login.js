@@ -26,7 +26,7 @@ class Login extends Component {
             // console.log(currentUser)
             this.props.loginUser(currentUser)
         } else {
-            window.alert("invalid username or password")
+            window.alert("IVALID USERNAME OR PASSWORD")
         }
     }
     

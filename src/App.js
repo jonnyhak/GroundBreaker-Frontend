@@ -30,7 +30,8 @@ class App extends Component {
         <Switch>
           {/* <Route path="/projects/:id" component={ProjectShow}/> */}
           <Route path="/projects/:id" render={(props) => <ProjectShow {...props} currentUser={this.state.currentUser} />}/>
-          <Route path="/users/:id" component={UserShow}/>
+          <Route path="/users/:id" render={(props) => <UserShow {...props} currentUser={this.state.currentUser} />}/>
+          {/* <Route path="/users/:id" component={UserShow}/> */}
           {/* <Route path="/" component={MainContainer}/> */}
           <Route path="/" render={() => <MainContainer loginUser={this.loginUser} currentUser={this.state.currentUser}/>}/>
           <Route path="/projects" component={Projects}/>

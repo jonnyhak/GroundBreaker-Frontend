@@ -7,7 +7,7 @@ class UserShow extends Component {
     
     state = {
         user: null,
-        investments: null,
+        investments: [],
         projects: null //serializer for userProjects with breakdown by position of each project
     }
 
@@ -38,9 +38,23 @@ class UserShow extends Component {
                     {inv.date} 
                     <Link to={`/projects/${inv.project.id}`}>{inv.project.developer_name}</Link> 
                     Amount: ${inv.amount}
+                    {this.props.currentUser.id === inv.user_id ?
+                        <button onClick={this.onDelete} value={inv.id}>Delete Investment</button>
+                        : null
+                    }
                     {/* <button onClick={this.onDelete} value={inv.id}>Delete Investment</button> */}
                 </li>
             )
+    }
+
+    onDelete = (e) => {  
+        let id = e.target.value
+        let newInvestments = this.state.investments.filter(inv => inv.id != id)
+        this.setState({investments: newInvestments})
+
+        fetch(`http://localhost:3000/investments/${id}`, {
+            method: "DELETE",
+        })
     }
     
     render() {

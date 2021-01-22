@@ -46,7 +46,10 @@ class ProjectShow extends React.Component  {
                 {inv.date} 
                 <Link to={`/users/${inv.user.id}`} key={inv.id}>{inv.user.username}</Link> 
                 Amount: ${inv.amount}
-                <button onClick={this.onDelete} value={inv.id}>Delete Investment</button>
+                {this.props.currentUser.id === inv.user.id ?
+                    <button onClick={this.onDelete} value={inv.id}>Delete Investment</button>
+                    : null
+                }
             </li>
         )
     }
@@ -59,7 +62,6 @@ class ProjectShow extends React.Component  {
         fetch(`http://localhost:3000/investments/${id}`, {
             method: "DELETE",
         })
-  
     }
 
     percent = () => {

@@ -22,7 +22,7 @@ class NavBar extends Component {
                 : null
                 }
                 <NavLink to="/">
-                    <span>Home</span>
+                    <span>HOME</span>
                 </NavLink>
                 {this.props.currentUser ? 
                     <>
@@ -33,10 +33,10 @@ class NavBar extends Component {
                  : 
                     <>
                     <NavLink to={'/signup'}>
-                        Sign Up
+                        SIGN UP
                     </NavLink>
                     <NavLink to={'/'}>
-                        Log In
+                        LOG IN
                     </NavLink>
                     </>
                 }
