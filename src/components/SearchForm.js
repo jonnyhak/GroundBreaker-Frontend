@@ -11,11 +11,7 @@ class SearchForm extends Component {
         e.preventDefault()
         this.props.clearHandler(e)
     }
-
-    // localOnSubmit = (e) => {
-    //     e.preventDfault()
-    //     this.props.onSubmit()
-    // }
+    
     
     render() {
         // console.log(this.props)
