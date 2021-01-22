@@ -1,26 +1,48 @@
 
-import React, { Component } from 'react'
-import {GoogleMap, withScriptjs, withGoogleMap, Marker} from "react-google-maps"
-
+import React, { useState } from 'react'
+import {GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow} from "react-google-maps"
+import {Route, Link} from 'react-router-dom'
+import mapStyles from './mapStyles'
 
 
 export default function Map(props) {
 
-    function map() {
+    function Map() {
+        const [selectedProject, setSelectedProject] = useState(null)
         return (
-            <GoogleMap defaultZoom={10} defaultCenter={{lat: 40.747342, lng: -73.974512}} >
+            <GoogleMap defaultZoom={13} defaultCenter={{lat: 40.747342, lng: -73.974512}} defaultOptions={{styles: mapStyles}}>
                 {props.projects.map((project) => (
                     <Marker 
                         key={project.id} 
                         position={{lat: parseFloat(project.lat), lng: parseFloat(project.lng)}}
+                        onClick={() => {
+                            setSelectedProject(project)
+                        }}
+                        icon={{
+                            url: '/thickBorder.jpeg',
+                            scaledSize: new window.google.maps.Size(25, 25)
+                        }}
                     />
                 ))}
+                {selectedProject && (
+                    <InfoWindow
+                        onCloseClick={() => {
+                            setSelectedProject(null)
+                        }}
+                        position={{lat: parseFloat(selectedProject.lat), lng: parseFloat(selectedProject.lng)}}
+                    >
+                        <div>
+                            <h2>{selectedProject.developer_name}</h2>
+                            <h4>{selectedProject.location}</h4>
+                        </div>
+                    </InfoWindow>
+                )}
             </GoogleMap> 
 
         )
     }
     
-    const WrappedMap = withScriptjs(withGoogleMap(map))
+    const WrappedMap = withScriptjs(withGoogleMap(Map))
 
     return (
         <div style={{width: '100vw', height: '100vh'}}>

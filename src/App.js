@@ -19,7 +19,7 @@ class App extends Component {
   }
 
   logout = () => {
-    this.setState({currentUser: null}) 
+    this.setState({currentUser: null})
   }
 
   render() {

@@ -53,7 +53,7 @@ class Projects extends Component {
         return (
             <div>
                 <h2>Project List</h2>
-                <Map projects={this.allProjects()}/>
+                <Map projects={this.allProjects()} currentUser={this.props.currentUser}/>
                 <SearchForm 
                     searchByLocation={this.state.searchByLocation}
                     searchByMinInvestment={this.state.searchByMinInvestment}

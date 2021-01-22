@@ -48,17 +48,18 @@ class MainContainer extends Component {
     render() {
         console.log(this.state)
         return (
+            //comment back in after testing 
             <div>
                 {!this.props.currentUser ?
                 <>
                     <Login users={this.state.users} loginUser={this.loginUser}/>
                     OR
-                    <Signup loginUser={this.loginUser}/>
+                    <Signup users={this.state.users} loginUser={this.loginUser}/>
                 </>
                     : 
                     <Projects  projects={this.state.projects} users={this.state.users} currentUser={this.state.currentUser}/>
                 }
-                {/* { false ? <ProjectShow currentUser={this.state.currentUser} /> : null } */}
+                {/* <Projects  projects={this.state.projects} users={this.state.users} currentUser={this.state.currentUser}/> */}
             </div>
         )
     }

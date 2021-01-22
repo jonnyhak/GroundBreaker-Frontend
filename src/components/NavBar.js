@@ -8,7 +8,7 @@ class NavBar extends Component {
     localLogout = () => {
         // console.log(this.props)
         this.props.logout()
-        // this.props.history.push("/")
+    
     }
     
     render() {
@@ -26,7 +26,9 @@ class NavBar extends Component {
                 </NavLink>
                 {this.props.currentUser ? 
                     <>
-                        <span onClick={this.localLogout}>Log Out</span>
+                        <NavLink to="/"> 
+                            <span onClick={this.localLogout}>Log Out</span>
+                        </NavLink>
                     </>
                  : 
                     <>
