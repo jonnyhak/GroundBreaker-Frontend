@@ -6,10 +6,12 @@ import Map from './Map'
 
 class Projects extends Component {
     
+    
     state = {
         searchByLocation: "",
         searchByMinInvestment: "",
-        searchByDevName: ""
+        searchByDevName: "",
+        projects: this.props.projects,
     }
     
     onChange = (e) => {
@@ -25,7 +27,7 @@ class Projects extends Component {
     }
 
     allProjects = () => {
-        let filteredProjects
+        let filteredProjects // = this.state.projects
         if (this.state.searchByLocation !== "" && this.state.searchByMinInvestment !== "") {
             filteredProjects = this.props.projects.filter((project) => 
                 project.location.toLowerCase().includes(this.state.searchByLocation.toLowerCase()) && project.minimum_investment <= this.state.searchByMinInvestment

@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react'
-import {NavLink} from 'react-router-dom'
+import {NavLink, useHistory} from 'react-router-dom'
 import {withRouter} from 'react-router-dom'
 
 class NavBar extends Component {
@@ -10,8 +10,13 @@ class NavBar extends Component {
         this.props.logout()
     
     }
+
+    // localOnClick = () => {
+    //     this.props.history.push(`/users/${this.props.currentUser.id}`)
+    // }
     
     render() {
+        console.log(this.props.history)
         return (
             <nav>
                 <span>Nav</span>
@@ -19,6 +24,7 @@ class NavBar extends Component {
                     <NavLink to={`/users/${this.props.currentUser.id}`}>
                         <span>Hello {this.props.currentUser.username}</span>
                     </NavLink>
+                    // <button onClick={this.localOnClick}>Hello {this.props.currentUser.username}</button>
                 : null
                 }
                 <NavLink to="/">

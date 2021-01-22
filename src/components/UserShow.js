@@ -12,16 +12,19 @@ class UserShow extends Component {
     }
 
     componentDidMount() {
-        fetch(`http://localhost:3000/users/${this.props.match.params.id}`)
-        .then(response => {
-            return response.json()
-        })
-        .then(data => this.setState({user: data, investments: data.investments}))
+        // fetch(`http://localhost:3000/users/${this.props.match.params.id}`)
+        // .then(response => {
+        //     return response.json()
+        // })
+        // .then(data => this.setState({user: data, investments: data.investments}))
+        this.setState({investments: this.props.user.investments})
+
     }
 
     totalPosition() {
         let total = 0
-        if (this.state.user) {
+        if (this.state.investments.length > 0) {
+            console.log(this.state.investments)
             let investments = this.state.investments
             investments.forEach(element => {
                 total += element.amount
@@ -61,11 +64,12 @@ class UserShow extends Component {
         console.log(this.state)
         return (
             <div>
-                {this.state.user ?
+                {this.props.user ?
                     <div>
+                        {/* <h1>{this.props.user.username}</h1> */}
                         <h1>User Show</h1>
-                        <h1>User: {this.state.user.username}</h1>
-                        <h2>Total Position: {this.totalPosition()}</h2>
+                        <h1>User: {this.props.user.username}</h1>
+                        <h2>Total Position: {this.state.investments.length > 0 ? this.totalPosition() : null}</h2>
                         <UserPieChart investments={this.state.investments}/>
                         {this.userInvestments()}
                     </div> 
