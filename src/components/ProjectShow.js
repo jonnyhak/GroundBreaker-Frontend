@@ -85,6 +85,7 @@ class ProjectShow extends React.Component  {
                     <ProjectImageSlider project={this.state.project}/>
                     <h1>{this.state.project.developer_name}</h1>
                     <h2>Location: {this.state.project.location}</h2>
+                    <iframe className="map"  src={`https://www.google.com/maps/embed/v1/place?key=${process.env.REACT_APP_GOOGLE_KEY}&q=${this.state.project.lat}, ${this.state.project.lng}&zoom=8`}> </iframe>
                     <h3>Total Capital Needed: {this.state.project.total_capital_needed}</h3>
                     <h4>Percent raised: {this.percent()} %</h4>
                     <Line percent={this.percent()} strokeWidth="4" strokeColor="green" trailWidth="4" />
