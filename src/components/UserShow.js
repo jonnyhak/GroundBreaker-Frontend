@@ -2,6 +2,7 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 import UserPieChart from './UserPieChart'
+import UserReChart from './UserReChart'
 
 class UserShow extends Component {
     
@@ -67,6 +68,7 @@ class UserShow extends Component {
                         <h1>User: {this.state.user.username}</h1>
                         <h2>Total Position: {this.totalPosition()}</h2>
                         <UserPieChart investments={this.state.investments}/>
+                        <UserReChart investments={this.state.investments}/>
                         {this.userInvestments()}
                     </div> 
 
