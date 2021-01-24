@@ -67,7 +67,7 @@ class ProjectShow extends React.Component  {
     percent = () => {
         let percent 
         percent = (this.capital_raised()) / (this.state.project.total_capital_needed) * 100 
-        return percent.toString()
+        return percent.toFixed(2).toString()
     }
 
     addInvestment = (investmentObj) => {
@@ -86,6 +86,7 @@ class ProjectShow extends React.Component  {
                     <h1>{this.state.project.developer_name}</h1>
                     <h2>Location: {this.state.project.location}</h2>
                     <h3>Total Capital Needed: {this.state.project.total_capital_needed}</h3>
+                    <h4>Percent raised: {this.percent()} %</h4>
                     <Line percent={this.percent()} strokeWidth="4" strokeColor="green" trailWidth="4" />
                     <h4>Captial Raised: {this.capital_raised()}</h4>
                     <h4>Minimum Investment: {this.state.project.minimum_investment}</h4>

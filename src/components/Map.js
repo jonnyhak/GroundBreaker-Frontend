@@ -1,13 +1,23 @@
 
 import React, { useState } from 'react'
 import {GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow} from "react-google-maps"
-import {Route, Link} from 'react-router-dom'
+import {BrowserRouter, Link} from 'react-router-dom'
 import mapStyles from './mapStyles'
+
 
 
 export default function Map(props) {
 
+    
+
     function Map() {
+        // function onHover(e) {
+        //     console.log(e)
+        // }
+        // function setBounce(marker) {
+        //     marker.setAnimation(google.maps.Animation.BOUNCE)
+        // }
+
         const [selectedProject, setSelectedProject] = useState(null)
         return (
             <GoogleMap defaultZoom={13} defaultCenter={{lat: 40.747342, lng: -73.974512}} defaultOptions={{styles: mapStyles}}>
@@ -18,10 +28,12 @@ export default function Map(props) {
                         onClick={() => {
                             setSelectedProject(project)
                         }}
+                        // onMouseOver={onHover}
                         icon={{
                             url: '/thickBorder.jpeg',
                             scaledSize: new window.google.maps.Size(25, 25)
                         }}
+                        
                     />
                 ))}
                 {selectedProject && (
@@ -32,8 +44,16 @@ export default function Map(props) {
                         position={{lat: parseFloat(selectedProject.lat), lng: parseFloat(selectedProject.lng)}}
                     >
                         <div>
-                            <h2>{selectedProject.developer_name}</h2>
-                            <h4>{selectedProject.location}</h4>
+
+                        <BrowserRouter>
+                            <Link to={`/projects/${selectedProject.id}`} id={selectedProject.id} currentUser={props.currentUser}>
+                                <div>
+                                    <h2>{selectedProject.developer_name}</h2>
+                                    <h4>{selectedProject.location}</h4>
+                                </div>
+                            </Link>
+
+                        </BrowserRouter>
                         </div>
                     </InfoWindow>
                 )}
