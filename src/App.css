@@ -1,5 +1,12 @@
 .App {
   text-align: center;
+  /* display: grid;
+  grid-template-areas: 
+    "nav nav"
+    "projects map"
+    "projects map";
+  grid-template-columns: 70% 1fr;
+  grid-template-rows: 80px 1fr; */
 }
 
 .project {
@@ -29,6 +36,35 @@ nav {
   background-color: white;
   z-index: 999;
 }
+
+.grid {
+  display: grid;
+  grid-template-areas: "projects map";
+  height: 100vh;
+  /* grid-auto-columns: 70fr 30fr; */
+  grid-template-columns: 40vw 60vw;
+}
+
+#map {
+  grid-area: map;
+  position: sticky;
+}
+
+#sidebar {
+  grid-area: projects;
+  /* /* height: 100vh; */
+  /* overflow: scroll;  */
+}
+
+.project {
+  color: white;
+}
+
+.projects {
+  height: 80vh;
+  overflow: scroll;
+}
+
 
 
 

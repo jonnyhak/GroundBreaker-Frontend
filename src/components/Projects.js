@@ -51,26 +51,30 @@ class Projects extends Component {
     render() {
         // console.log(this.allProjects())
         return (
-            <div>
-                <h2>Project List</h2>
-                <Map projects={this.allProjects()} currentUser={this.props.currentUser}/>
-                <SearchForm 
-                    searchByLocation={this.state.searchByLocation}
-                    searchByMinInvestment={this.state.searchByMinInvestment}
-                    searchByDevName={this.state.searchByDevName}
-                    changeHandler={this.onChange}
-                    clearHandler={this.onClear}
-                />
-                {
-                    this.allProjects().map((project) => (
-                        < Project 
+            <div className="grid">
+                <div id="map">
+                    <Map projects={this.allProjects()} currentUser={this.props.currentUser}/>
+                </div>
+                <div id="sidebar">
+                    <SearchForm 
+                        searchByLocation={this.state.searchByLocation}
+                        searchByMinInvestment={this.state.searchByMinInvestment}
+                        searchByDevName={this.state.searchByDevName}
+                        changeHandler={this.onChange}
+                        clearHandler={this.onClear}
+                    />
+                    <div className="projects">
+                    {
+                        this.allProjects().map((project) => (
+                            < Project 
                             key={project.id}
                             project={project}
                             currentUser={this.props.currentUser}   
-                        />
-                        
-                    ))
-                }
+                            />    
+                            ))
+                        }
+                    </div>
+                </div>
             </div>
         )
     }
