@@ -13,8 +13,7 @@ class NavBar extends Component {
     
     render() {
         return (
-            <nav>
-                <span>Nav</span>
+            <nav id="nav">
                 {this.props.currentUser ? 
                     <NavLink to={`/users/${this.props.currentUser.id}`}>
                         <span>Hello {this.props.currentUser.username}</span>

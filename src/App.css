@@ -7,6 +7,29 @@
   padding: 5%;
 }
 
+body {
+  background-image: url("https://i.pinimg.com/originals/4f/df/4f/4fdf4f68284ab4a4c55957ad96bb941a.jpg");
+  background-attachment: fixed;
+  position: absolute;
+  min-width: 100%;
+  min-height: 100%;
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  min-height: 100%;
+}
+
+nav {
+  grid-area: nav;
+  display: flex;
+  justify-content: space-around;
+  padding: 15px;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 999;
+}
+
 
 
 

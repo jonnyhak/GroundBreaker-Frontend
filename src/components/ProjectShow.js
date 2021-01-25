@@ -5,6 +5,7 @@ import InvestmentForm from './InvestmentForm'
 import { Line, Circle } from 'rc-progress'
 import ProjectImageSlider from './ProjectImageSlider'
 import {Link} from 'react-router-dom'
+import dateFormat from 'dateformat'
 
 class ProjectShow extends React.Component  {
     
@@ -43,9 +44,9 @@ class ProjectShow extends React.Component  {
         let sortedInvestments = this.state.investments.sort((a, b) => b.id - a.id)
         return sortedInvestments.map(inv => 
             <li>           
-                {inv.date} 
+                {dateFormat(inv.date, "mmmm dS, yyyy")}
                 <Link to={`/users/${inv.user.id}`} key={inv.id}>{inv.user.username}</Link> 
-                Amount: ${inv.amount}
+                Amount: ${this.commaNumber(inv.amount)}
                 {this.props.currentUser.id === inv.user.id ?
                     <button onClick={this.onDelete} value={inv.id}>Delete Investment</button>
                     : null
@@ -74,6 +75,8 @@ class ProjectShow extends React.Component  {
         this.setState({investments: [investmentObj, ...this.state.investments]})
     }
 
+    commaNumber = require('comma-number')
+
     render() {
         console.log(this.props)
 
@@ -85,12 +88,12 @@ class ProjectShow extends React.Component  {
                     <ProjectImageSlider project={this.state.project}/>
                     <h1>{this.state.project.developer_name}</h1>
                     <h2>Location: {this.state.project.location}</h2>
-                    <iframe className="map"  src={`https://www.google.com/maps/embed/v1/place?key=${process.env.REACT_APP_GOOGLE_KEY}&q=${this.state.project.lat}, ${this.state.project.lng}&zoom=8`}> </iframe>
-                    <h3>Total Capital Needed: {this.state.project.total_capital_needed}</h3>
+                    {/* <iframe className="map"  src={`https://www.google.com/maps/embed/v1/place?key=${process.env.REACT_APP_GOOGLE_KEY}&q=${this.state.project.lat}, ${this.state.project.lng}&zoom=8`}> </iframe> */}
+                    <h3>Total Capital Needed: ${this.commaNumber(this.state.project.total_capital_needed)}</h3>
                     <h4>Percent raised: {this.percent()} %</h4>
                     <Line percent={this.percent()} strokeWidth="4" strokeColor="green" trailWidth="4" />
-                    <h4>Captial Raised: {this.capital_raised()}</h4>
-                    <h4>Minimum Investment: {this.state.project.minimum_investment}</h4>
+                    <h4>Captial Raised: ${this.commaNumber(this.capital_raised())}</h4>
+                    <h4>Minimum Investment: ${this.commaNumber(this.state.project.minimum_investment)}</h4>
                     <h4>Projected ROI: {this.state.project.projected_roi}</h4>
                     {/* <h5>Investments: {this.state.project.investments.amount}</h5> */}
                     <button onClick={() => this.localClickHandler()}>Invest!</button>

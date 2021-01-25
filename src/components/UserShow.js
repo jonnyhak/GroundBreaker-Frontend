@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 import UserPieChart from './UserPieChart'
 import UserReChart from './UserReChart'
+import dateFormat from 'dateformat'
 
 class UserShow extends Component {
     
@@ -36,9 +37,9 @@ class UserShow extends Component {
         
         return sortedInvestments.map(inv => 
                 <li>
-                    {inv.date} 
+                    {dateFormat(inv.date, "mmmm dS, yyyy")} 
                     <Link to={`/projects/${inv.project.id}`}>{inv.project.developer_name}</Link> 
-                    Amount: ${inv.amount}
+                    Amount: ${this.commaNumber(inv.amount)}
                     {this.props.currentUser.id === inv.user_id ?
                         <button onClick={this.onDelete} value={inv.id}>Delete Investment</button>
                         : null
@@ -57,6 +58,8 @@ class UserShow extends Component {
             method: "DELETE",
         })
     }
+
+    commaNumber = require('comma-number')
     
     render() {
         console.log(this.state)
@@ -66,7 +69,7 @@ class UserShow extends Component {
                     <div>
                         <h1>User Show</h1>
                         <h1>User: {this.state.user.username}</h1>
-                        <h2>Total Position: {this.totalPosition()}</h2>
+                        <h2>Total Position: ${this.commaNumber(this.totalPosition())}</h2>
                         <UserPieChart investments={this.state.investments}/>
                         <UserReChart investments={this.state.investments}/>
                         {this.userInvestments()}

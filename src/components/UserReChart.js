@@ -1,6 +1,7 @@
 
 import React from 'react'
 import {PieChart, Pie, Sector, Cell, Tooltip, BarChart, XAxis, YAxis, Legend, CartesianGrid, Bar } from "recharts"
+import dateFormat from 'dateformat'
 
 export default function UserReChart(props) {
     
@@ -16,6 +17,7 @@ export default function UserReChart(props) {
                 name: inv.project.developer_name,
                 value: inv.amount,
                 date: inv.date, 
+                // date: dateFormat(inv.date, "mmmm dS, yyyy"), 
                 color: colors[(i % colors.length)]
             })
         });

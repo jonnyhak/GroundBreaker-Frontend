@@ -20,7 +20,7 @@ export default function Map(props) {
 
         const [selectedProject, setSelectedProject] = useState(null)
         return (
-            <GoogleMap defaultZoom={13} defaultCenter={{lat: 40.747342, lng: -73.974512}} defaultOptions={{styles: mapStyles}}>
+            <GoogleMap defaultZoom={12} defaultCenter={{lat: 40.737422, lng: -73.933703}} defaultOptions={{styles: mapStyles}}>
                 {props.projects.map((project) => (
                     <Marker 
                         key={project.id} 
