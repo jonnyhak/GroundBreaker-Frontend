@@ -26,13 +26,14 @@ nav {
   grid-area: nav;
   display: flex;
   justify-content: space-between;
-  padding: 15px;
+  padding: 5px;
   position: sticky;
   top: 0;
   background-color: white;
   z-index: 999;
   color: blue;
   align-items: center;
+  font-size: 18px;
 }
 
 nav > a {
@@ -137,13 +138,13 @@ span {
 .percent {
   border-style: outset;
   background-color: rgba(0, 0, 0, .85);
-  height: 37vh;
-  border-radius: 5px;
+  height: 40vh;
+  border-radius: 10px;
 }
 
 .percent > ul > li {
   padding-top: 5px;
-  padding-bottom: 5px;
+  padding-bottom: 6px;
   font-size: 24px;
 }
 
@@ -151,10 +152,42 @@ span {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-left: 5vw;
+  margin-left: 9vw;
   overflow: scroll;
-  height: 22vh;
+  height: 25vh;
 }
+
+input {
+  text-align: center;
+}
+
+.userShow > ul {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 25vh;
+  overflow: scroll;
+  margin-left: 25vw;
+  margin-right: 25vw;
+  padding-left: 7vw;
+  border-style: outset;
+  background-color: rgba(0, 0, 0, .85);
+}
+
+.userInvestments > li {
+  padding-top: 6px;
+  padding-bottom: 5px;
+  font-size: 24px;
+}
+
+.userHeader {
+  border-style: outset;
+  background-color: rgba(0, 0, 0, .85);
+}
+
+
+
+
 
 
 

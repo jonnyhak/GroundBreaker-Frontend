@@ -47,9 +47,9 @@ class InvestmentForm extends Component {
                 {/* <Popup trigger={<div className="btn-div"><button > Invest </button></div>} position="center"> */}
                     <form >
                         $
-                        <input type="text" name="amount" value={this.state.amount} onChange={this.onChange}/>
+                        <input type="text" name="amount" value={this.state.amount} onChange={this.onChange} style={{fontSize: "18px"}}/>
 
-                        <button>Submit</button>
+                        <button style={{fontSize: "18px"}}>Submit</button>
                     </form>
                 {/* </Popup> */}
             </div>

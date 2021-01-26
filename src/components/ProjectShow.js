@@ -41,12 +41,15 @@ class ProjectShow extends React.Component  {
     }
 
     projectInvestments = () => {
-        let sortedInvestments = this.state.investments.sort((a, b) => a.id - b.id)
+        let sortedInvestments = this.state.investments.sort((a, b) => b.id - a.id)
         return sortedInvestments.map(inv => 
             <li>           
-                {dateFormat(inv.date, "mmmm dS, yyyy")}
-                <Link to={`/users/${inv.user.id}`} key={inv.id}>{inv.user.username}</Link> 
-                 invested $ {this.commaNumber(inv.amount)}
+                {" " + dateFormat(inv.date, "mmmm dS, yyyy") + " - " }  
+                {/* <br/> */}
+                <Link to={`/users/${inv.user.id}`} key={inv.id}>{" " + inv.user.username + " "}</Link> 
+                 {/* <br/> */}
+                 invested $ {this.commaNumber(inv.amount) + " "}
+                 {/* <br/> */}
                 {this.props.currentUser.id === inv.user.id ?
                     <button onClick={this.onDelete} value={inv.id}>Delete Investment</button>
                     : null
@@ -85,14 +88,14 @@ class ProjectShow extends React.Component  {
             {this.state.project ?  
             <div className="projectshowgrid">
                 <div id="projectimages"> 
-                    <ProjectImageSlider project={this.state.project}/>
+                    <div style={{marginLeft: "15vw"}}>
+                        <ProjectImageSlider project={this.state.project} style={{marginleft: "10%"}}/>
+                    </div>
                     <br/>
-                    <br/>
-                    
                     <div className="percent" style={{overflow: "scroll" }}>
                         <h2>Percent raised: {this.percent()} %</h2>
-                        <div style={{margin: "10px"}}>
-                            <Line percent={this.percent()} strokeWidth="4" strokeColor="green" trailWidth="4"/>
+                        <div style={{margin: "10px"}} >
+                            <Line percent={this.percent()} strokeWidth="4" strokeColor="green" trailWidth="4" />
                         </div>
                         <ul classname="projectinvestments">
                             {this.projectInvestments()}
@@ -115,10 +118,10 @@ class ProjectShow extends React.Component  {
                     {/* <h5>Investments: {this.state.project.investments.amount}</h5> */}
                     <br/>
                     {this.state.investClicked ?
-                        <InvestmentForm project={this.state.project} addInvestment={this.addInvestment} currentUser={this.props.currentUser}/> 
+                        <InvestmentForm project={this.state.project} addInvestment={this.addInvestment} currentUser={this.props.currentUser} /> 
                         : null }
                     <br/>
-                    <button onClick={() => this.localClickHandler()}>Invest!</button>
+                    <button onClick={() => this.localClickHandler()} style={{fontSize: "18px"}}>Invest!</button>
                     <br/>
                 </div>
                     

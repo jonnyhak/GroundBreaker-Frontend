@@ -28,7 +28,7 @@ class ProjectImageSlider extends Component {
                     images={this.images}
                     showNavs={true}
                     showBullets={true}
-                    useGPURender={true}
+                    useGPURender={false}
                     slideDuration={1.5}
                 />
             </div>

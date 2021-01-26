@@ -37,9 +37,9 @@ class UserShow extends Component {
         
         return sortedInvestments.map(inv => 
                 <li>
-                    {dateFormat(inv.date, "mmmm dS, yyyy")} 
-                    <Link to={`/projects/${inv.project.id}`}>{inv.project.developer_name}</Link> 
-                    Amount: ${this.commaNumber(inv.amount)}
+                    {" " + dateFormat(inv.date, "mmmm dS, yyyy") + " - " } 
+                    <Link to={`/projects/${inv.project.id}`}>{" " + inv.project.developer_name + " "}</Link> 
+                     ${this.commaNumber(inv.amount) + " "}
                     {this.props.currentUser.id === inv.user_id ?
                         <button onClick={this.onDelete} value={inv.id}>Delete Investment</button>
                         : null
@@ -66,13 +66,18 @@ class UserShow extends Component {
         return (
             <div>
                 {this.state.user ?
-                    <div>
-                        <h1>User Show</h1>
-                        <h1>User: {this.state.user.username}</h1>
-                        <h2>Total Position: ${this.commaNumber(this.totalPosition())}</h2>
-                        {/* <UserPieChart investments={this.state.investments}/> */}
-                        <UserReChart investments={this.state.investments}/>
-                        {this.userInvestments()}
+                    <div className="userShow" style={{color: "white"}}>
+                        <div className="userHeader">
+                            <h1>User: {this.state.user.username}</h1>
+                            <h2>Total Position: ${this.commaNumber(this.totalPosition())}</h2>
+                        </div>
+                        <div className="userCharts">
+                            {/* <UserPieChart investments={this.state.investments}/> */}
+                            <UserReChart investments={this.state.investments}/>
+                        </div>
+                        <ul className="userInvestments">
+                            {this.userInvestments()}
+                        </ul>
                     </div> 
 
                 : <h1>Loading ...</h1> }
