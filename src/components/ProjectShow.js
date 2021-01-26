@@ -41,9 +41,9 @@ class ProjectShow extends React.Component  {
     }
 
     projectInvestments = () => {
-        let sortedInvestments = this.state.investments.sort((a, b) => b.id - a.id)
+        let sortedInvestments = this.state.investments.sort((a, b) => a.id - b.id)
         return sortedInvestments.map(inv => 
-            <div className="project">           
+            <li>           
                 {dateFormat(inv.date, "mmmm dS, yyyy")}
                 <Link to={`/users/${inv.user.id}`} key={inv.id}>{inv.user.username}</Link> 
                  invested $ {this.commaNumber(inv.amount)}
@@ -51,7 +51,7 @@ class ProjectShow extends React.Component  {
                     <button onClick={this.onDelete} value={inv.id}>Delete Investment</button>
                     : null
                 }
-            </div>
+            </li>
         )
     }
 
@@ -88,13 +88,16 @@ class ProjectShow extends React.Component  {
                     <ProjectImageSlider project={this.state.project}/>
                     <br/>
                     <br/>
-                    <div className="percent">
-                        <h4>Percent raised: {this.percent()} %</h4>
-                        <Line percent={this.percent()} strokeWidth="4" strokeColor="green" trailWidth="4" />
+                    
+                    <div className="percent" style={{overflow: "scroll" }}>
+                        <h2>Percent raised: {this.percent()} %</h2>
+                        <div style={{margin: "10px"}}>
+                            <Line percent={this.percent()} strokeWidth="4" strokeColor="green" trailWidth="4"/>
+                        </div>
+                        <ul classname="projectinvestments">
+                            {this.projectInvestments()}
+                        </ul>
                     </div>
-                    <ul>
-                        {this.projectInvestments()}
-                    </ul>
                 </div>
                 <div id="projectinfo">
                     <h1>{this.state.project.developer_name}</h1>
@@ -103,8 +106,6 @@ class ProjectShow extends React.Component  {
                     {/* <iframe className="map"  src={`https://www.google.com/maps/embed/v1/place?key=${process.env.REACT_APP_GOOGLE_KEY}&q=${this.state.project.lat}, ${this.state.project.lng}&zoom=8`}> </iframe> */}
                     <br/>
                     <h3>Total Capital Needed: ${this.commaNumber(this.state.project.total_capital_needed)}</h3>
-                    <br/>
-                    
                     <br/>
                     <h4>Captial Raised: ${this.commaNumber(this.capital_raised())}</h4>
                     <br/>

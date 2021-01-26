@@ -62,8 +62,10 @@ nav > a {
   display: flex;
   margin: 2%;
   border-style: outset;
-  background-color: rgba(0, 0, 0, .7);
+  background-color: rgba(0, 0, 0, .85);
+  border-radius: 5px;  
 }
+
 
 .project:hover {
   transform: scale(1.07)
@@ -96,7 +98,9 @@ nav > a {
 #projectimages {
   grid-area: projectimages;
   margin: 2%;
-  color: white; 
+  color: white;
+  height: 95vh;
+  
 }
 
 body > li {
@@ -106,8 +110,15 @@ body > li {
 
 #projectinfo {
   grid-area: projectinfo;
-  margin-right: 2%;
-  color: white
+  margin: 2%;
+  margin-right: 5vw;
+  color: white;
+  border-style: outset;
+  background-color: rgba(0, 0, 0, .85);
+  height: 80vh;
+  font-size: larger;
+  border-radius: 10px;
+  
 }
 
 a {
@@ -122,6 +133,30 @@ span {
   display: flex;
   justify-content: space-around;
 }
+
+.percent {
+  border-style: outset;
+  background-color: rgba(0, 0, 0, .85);
+  height: 37vh;
+  border-radius: 5px;
+}
+
+.percent > ul > li {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 24px;
+}
+
+.percent > ul {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 5vw;
+  overflow: scroll;
+  height: 22vh;
+}
+
+
 
 
 

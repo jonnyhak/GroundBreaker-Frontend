@@ -23,8 +23,8 @@ class ProjectImageSlider extends Component {
         return (
             <div>
                 <SimpleImageSlider
-                    width={812}
-                    height={500}
+                    width={470}
+                    height={350}
                     images={this.images}
                     showNavs={true}
                     showBullets={true}
