@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react'
 import {GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow} from "react-google-maps"
-import {BrowserRouter, Link} from 'react-router-dom'
+import {BrowserRouter, Link, withRouter} from 'react-router-dom'
 import mapStyles from './mapStyles'
 
 
@@ -48,11 +48,12 @@ export default function Map(props) {
                         <BrowserRouter>
                             <Link to={`/projects/${selectedProject.id}`} id={selectedProject.id} currentUser={props.currentUser}>
                                 <div>
+                                    <img style={{width: "25vh", height: "20vh"}} src={selectedProject.img1}/>
                                     <h2>{selectedProject.developer_name}</h2>
+                                    {/* <h4>Minimum ${selectedProject.minimum_investment}</h4> */}
                                     <h4>{selectedProject.location}</h4>
                                 </div>
                             </Link>
-
                         </BrowserRouter>
                         </div>
                     </InfoWindow>
@@ -65,7 +66,7 @@ export default function Map(props) {
     const WrappedMap = withScriptjs(withGoogleMap(Map))
 
     return (
-        <div style={{width: '50vw', height: '100vh'}}>
+        <div style={{width: '38vw', height: '95vh'}}>
             <WrappedMap 
                 googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${
                     process.env.REACT_APP_GOOGLE_KEY

@@ -70,7 +70,7 @@ class UserShow extends Component {
                         <h1>User Show</h1>
                         <h1>User: {this.state.user.username}</h1>
                         <h2>Total Position: ${this.commaNumber(this.totalPosition())}</h2>
-                        <UserPieChart investments={this.state.investments}/>
+                        {/* <UserPieChart investments={this.state.investments}/> */}
                         <UserReChart investments={this.state.investments}/>
                         {this.userInvestments()}
                     </div> 

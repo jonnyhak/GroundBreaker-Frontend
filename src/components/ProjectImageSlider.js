@@ -6,7 +6,7 @@ class ProjectImageSlider extends Component {
     
     // map = `https://maps.googleapis.com/maps/api/staticmap?center=40.714728,-73.998672&zoom=15&size=640x640&key=${process.env.REACT_APP_GOOGLE_KEY}`
     
-    map = `https://maps.googleapis.com/maps/api/staticmap?center=${this.props.project.lat},${this.props.project.lng}&zoom=15&size=600x300&maptype=roadmap&markers=color:orange%7Clabel:G%7C${this.props.project.lat},${this.props.project.lng}&key=${process.env.REACT_APP_GOOGLE_KEY}`
+    map = `https://maps.googleapis.com/maps/api/staticmap?center=${this.props.project.lat},${this.props.project.lng}&zoom=15&size=750x500&maptype=roadmap&markers=color:orange%7Clabel:G%7C${this.props.project.lat},${this.props.project.lng}&key=${process.env.REACT_APP_GOOGLE_KEY}`
 
     images = [
             { url: this.props.project.img1},
@@ -23,8 +23,8 @@ class ProjectImageSlider extends Component {
         return (
             <div>
                 <SimpleImageSlider
-                    width={1000}
-                    height={750}
+                    width={812}
+                    height={500}
                     images={this.images}
                     showNavs={true}
                     showBullets={true}

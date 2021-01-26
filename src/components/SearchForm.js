@@ -16,8 +16,7 @@ class SearchForm extends Component {
     render() {
         // console.log(this.props)
         return (
-            <div>
-                <h5>Search Form</h5>
+            <div className="searchForm">
                 <form onSubmit={this.localOnClear}>
                     <input 
                         type="text" 
@@ -30,7 +29,7 @@ class SearchForm extends Component {
                         type="text" 
                         name="searchByDevName"
                         value={this.props.searchByDevName} 
-                        placeholder="search by Developer" 
+                        placeholder="search by Project" 
                         onChange={this.props.changeHandler} 
                     />
                     {/* <input 

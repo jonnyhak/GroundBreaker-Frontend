@@ -51,7 +51,7 @@ class Projects extends Component {
     render() {
         // console.log(this.allProjects())
         return (
-            <div className="grid">
+            <div className="homegrid">
                 <div id="map">
                     <Map projects={this.allProjects()} currentUser={this.props.currentUser}/>
                 </div>
