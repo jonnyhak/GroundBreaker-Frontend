@@ -51,7 +51,7 @@ export default function Map(props) {
                                     <img style={{width: "25vh", height: "20vh"}} src={selectedProject.img1}/>
                                     <h2>{selectedProject.developer_name}</h2>
                                     {/* <h4>Minimum ${selectedProject.minimum_investment}</h4> */}
-                                    <h4>{selectedProject.location}</h4>
+                                    <h4>📍 {selectedProject.location}</h4>
                                 </div>
                             </Link>
                         </BrowserRouter>

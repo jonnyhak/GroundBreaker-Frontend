@@ -78,6 +78,12 @@ class ProjectShow extends React.Component  {
         this.setState({investments: [investmentObj, ...this.state.investments]})
     }
 
+    roi = () => {
+        let percent 
+        percent = (this.state.project.projected_roi) * 100 
+        return percent.toFixed(2).toString()
+    }
+
     commaNumber = require('comma-number')
 
     render() {
@@ -88,7 +94,7 @@ class ProjectShow extends React.Component  {
             {this.state.project ?  
             <div className="projectshowgrid">
                 <div id="projectimages"> 
-                    <div style={{marginLeft: "15vw"}}>
+                    <div style={{marginLeft: "16vw"}}>
                         <ProjectImageSlider project={this.state.project} style={{marginleft: "10%"}}/>
                     </div>
                     <br/>
@@ -105,18 +111,18 @@ class ProjectShow extends React.Component  {
                 <div id="projectinfo">
                     <h1>{this.state.project.developer_name}</h1>
                     {/* <br/> */}
-                    <h2>Location: {this.state.project.location}</h2>
+                    <h2>📍 Location: {this.state.project.location}</h2>
                     {/* <iframe className="map"  src={`https://www.google.com/maps/embed/v1/place?key=${process.env.REACT_APP_GOOGLE_KEY}&q=${this.state.project.lat}, ${this.state.project.lng}&zoom=8`}> </iframe> */}
                     {/* <br/> */}
-                    <h3>Total SQFT: {this.commaNumber(this.state.project.size)}</h3>
+                    <h3>📐 Total SQFT: {this.commaNumber(this.state.project.size)}</h3>
                     <br/>
-                    <h3>Total Capital Needed: ${this.commaNumber(this.state.project.total_capital_needed)}</h3>
+                    <h3>🎯  Total Capital Needed: ${this.commaNumber(this.state.project.total_capital_needed)}</h3>
                     <br/>
-                    <h4>Captial Raised: ${this.commaNumber(this.capital_raised())}</h4>
+                    <h4>🏦  Captial Raised: ${this.commaNumber(this.capital_raised())}</h4>
                     <br/>
-                    <h4>Minimum Investment: ${this.commaNumber(this.state.project.minimum_investment)}</h4>
+                    <h4>💵  Minimum Investment: ${this.commaNumber(this.state.project.minimum_investment)}</h4>
                     <br/>
-                    <h4>Projected ROI: {this.state.project.projected_roi}</h4>
+                    <h4>📈  Projected ROI: {this.roi()}%</h4>
                     {/* <h5>Investments: {this.state.project.investments.amount}</h5> */}
                     <br/>
                     {this.state.investClicked ?
