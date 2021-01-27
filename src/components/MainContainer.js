@@ -51,11 +51,14 @@ class MainContainer extends Component {
             //comment back in after testing 
             <div>
                 {!this.props.currentUser ?
-                <>
+                <div className="cover">
+                    <img src="/GBCover.jpeg" style={{height: "300px", width: "300px"}}/>
                     <Login users={this.state.users} loginUser={this.loginUser}/>
-                    OR
+                    <br/>
+                    <h2 style={{color: "white"}}>or</h2>
+                    <br/>
                     <Signup users={this.state.users} loginUser={this.loginUser}/>
-                </>
+                </div>
                     : 
                     <Projects  projects={this.state.projects} users={this.state.users} currentUser={this.state.currentUser}/>
                 }

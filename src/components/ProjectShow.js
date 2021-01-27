@@ -104,9 +104,11 @@ class ProjectShow extends React.Component  {
                 </div>
                 <div id="projectinfo">
                     <h1>{this.state.project.developer_name}</h1>
-                    <br/>
+                    {/* <br/> */}
                     <h2>Location: {this.state.project.location}</h2>
                     {/* <iframe className="map"  src={`https://www.google.com/maps/embed/v1/place?key=${process.env.REACT_APP_GOOGLE_KEY}&q=${this.state.project.lat}, ${this.state.project.lng}&zoom=8`}> </iframe> */}
+                    {/* <br/> */}
+                    <h3>Total SQFT: {this.commaNumber(this.state.project.size)}</h3>
                     <br/>
                     <h3>Total Capital Needed: ${this.commaNumber(this.state.project.total_capital_needed)}</h3>
                     <br/>

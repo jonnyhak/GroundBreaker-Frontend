@@ -44,7 +44,7 @@ class Signup extends Component {
         console.log(this.state)
         return (
             <div>
-                <form onSubmit={this.submitHandler}>
+                <form className="signupForm" onSubmit={this.submitHandler}>
                     <input
                         type="username"
                         name="username"
@@ -72,7 +72,7 @@ class Signup extends Component {
                         required
                     />
 
-                    <button type="submit">Register</button>
+                    <button type="submit" style={{fontSize: "18px"}}>Register</button>
                 </form>
             </div>
         )

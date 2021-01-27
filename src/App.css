@@ -34,6 +34,7 @@ nav {
   color: blue;
   align-items: center;
   font-size: 18px;
+  font-family: Arial, Helvetica, sans-serif
 }
 
 nav > a {
@@ -41,11 +42,72 @@ nav > a {
   margin-left: 5%;
 }
 
+.cover > img {
+  margin: 5%;
+  border-radius: 10px;
+  box-shadow: 10px 10px 5px grey;
+}
+
+.loginForm > input{
+  font-size: 18px;
+  /* margin-left: 1%;
+  margin-right: 1%; */
+  box-shadow: 10px 10px 5px grey;
+  font-family: Arial, Helvetica, sans-serif
+}
+.loginForm > button{
+  font-size: 18px;
+  margin-left: 1%;
+  box-shadow: 10px 10px 5px grey;
+  font-family: Arial, Helvetica, sans-serif
+}
+
+.signupForm > input{
+  font-size: 18px;
+  /* margin-left: 1%;
+  margin-right: 1%; */
+  box-shadow: 10px 10px 5px grey;
+  font-family: Arial, Helvetica, sans-serif
+}
+
+.signupForm > button{
+  font-size: 18px;
+  margin-left: 1%;
+  box-shadow: 10px 10px 5px grey;
+  font-family: Arial, Helvetica, sans-serif
+}
+
+
 .homegrid {
   display: grid;
   grid-template-areas: "projects map";
   height: 100vh;
   grid-template-columns: 60vw 40vw;
+}
+
+.searchForm > form > input {
+  font-size: 18px;
+  box-shadow: 10px 10px 5px grey;
+  font-family: Arial, Helvetica, sans-serif;
+  border-radius: 2px;
+  margin-left: 1%;
+  margin-right: 1%;
+}
+.searchForm > form > select {
+  font-size: 18px;
+  box-shadow: 10px 10px 5px grey;
+  font-family: Arial, Helvetica, sans-serif;
+  border-radius: 2px;
+  margin-left: 1%;
+  margin-right: 1%;
+}
+.searchForm > form > button {
+  font-size: 18px;
+  box-shadow: 10px 10px 5px grey;
+  font-family: Arial, Helvetica, sans-serif;
+  border-radius: 2px;
+  margin-left: 1%;
+  margin-right: 1%;
 }
 
 #map {
@@ -62,9 +124,10 @@ nav > a {
   color: white;
   display: flex;
   margin: 2%;
-  border-style: outset;
+  /* border-style: outset; */
   background-color: rgba(0, 0, 0, .85);
-  border-radius: 5px;  
+  border-radius: 5px;
+  box-shadow: 10px 10px 5px grey;  
 }
 
 
@@ -86,7 +149,8 @@ nav > a {
 }
 
 .searchForm {
-  margin: 2%;
+  margin-top: 1%;
+  margin-bottom: 1%;
 }
 
 .projectshowgrid {
@@ -101,7 +165,6 @@ nav > a {
   margin: 2%;
   color: white;
   height: 95vh;
-  
 }
 
 body > li {
@@ -114,12 +177,12 @@ body > li {
   margin: 2%;
   margin-right: 5vw;
   color: white;
-  border-style: outset;
+  /* border-style: outset; */
   background-color: rgba(0, 0, 0, .85);
   height: 80vh;
   font-size: larger;
   border-radius: 10px;
-  
+  box-shadow: 10px 10px 5px grey; 
 }
 
 a {
@@ -130,16 +193,12 @@ span {
   color: blue;
 }
 
-.searchForm {
-  display: flex;
-  justify-content: space-around;
-}
-
 .percent {
-  border-style: outset;
+  /* border-style: outset; */
   background-color: rgba(0, 0, 0, .85);
   height: 40vh;
   border-radius: 10px;
+  box-shadow: 10px 10px 5px grey; 
 }
 
 .percent > ul > li {
@@ -165,13 +224,15 @@ input {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  height: 25vh;
+  height: 22vh;
   overflow: scroll;
   margin-left: 25vw;
   margin-right: 25vw;
-  padding-left: 7vw;
-  border-style: outset;
+  padding-left: 8vw;
+  /* border-style: outset; */
   background-color: rgba(0, 0, 0, .85);
+  box-shadow: 10px 10px 5px grey;
+  border-radius: 5px;
 }
 
 .userInvestments > li {
@@ -181,8 +242,23 @@ input {
 }
 
 .userHeader {
-  border-style: outset;
+  /* border-style: outset; */
   background-color: rgba(0, 0, 0, .85);
+  margin-top: 1%;
+  margin-left: 35vw;
+  margin-right: 35vw;
+  box-shadow: 10px 10px 5px grey;
+  border-radius: 5px;
+}
+
+.userCharts {
+  /* border-style: outset; */
+  background-color: rgba(0, 0, 0, .85);
+  margin-top: 1%;
+  margin-left: 10vw;
+  margin-right: 10vw;
+  box-shadow: 10px 10px 5px grey;
+  border-radius: 5px;
 }
 
 

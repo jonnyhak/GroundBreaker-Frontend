@@ -3,6 +3,8 @@ import React from 'react'
 import {PieChart, Pie, Sector, Cell, Tooltip, BarChart, XAxis, YAxis, Legend, CartesianGrid, Bar } from "recharts"
 import dateFormat from 'dateformat'
 
+let commaNumber = require('comma-number')
+
 export default function UserReChart(props) {
     
     let dataObj = () => {
@@ -15,9 +17,10 @@ export default function UserReChart(props) {
         investments.forEach((inv, i) => {
             projectBreakdown.push({
                 name: inv.project.developer_name,
+                // value: commaNumber(inv.amount),
                 value: inv.amount,
-                date: inv.date, 
-                // date: dateFormat(inv.date, "mmmm dS, yyyy"), 
+                // date: inv.date, 
+                date: dateFormat(inv.date, "mm/d/yy"), 
                 color: colors[(i % colors.length)]
             })
         });
