@@ -14,10 +14,9 @@ class NavBar extends Component {
     render() {
         return (
             <nav id="nav">
-                
-                    <img src="/GBLogo.jpeg" style={{height: "100px", width: "225px"}}/>
-                
-                
+
+                <img src="/GBLogo.jpeg" style={{height: "100px", width: "225px"}}/>
+                                
                 {this.props.currentUser ? 
                     <NavLink to={`/users/${this.props.currentUser.id}`}>
                         <span>Hello {this.props.currentUser.username}</span>
@@ -43,6 +42,7 @@ class NavBar extends Component {
                     </NavLink>
                     </>
                 }
+                
             </nav>
         )
     }

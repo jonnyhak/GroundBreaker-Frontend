@@ -25,6 +25,7 @@ export default function Map(props) {
                     <Marker 
                         key={project.id} 
                         position={{lat: parseFloat(project.lat), lng: parseFloat(project.lng)}}
+                        animation={window.google.maps.Animation.DROP}
                         onClick={() => {
                             setSelectedProject(project)
                         }}
@@ -48,7 +49,7 @@ export default function Map(props) {
                         <BrowserRouter>
                             <Link to={`/projects/${selectedProject.id}`} id={selectedProject.id} currentUser={props.currentUser}>
                                 <div>
-                                    <img style={{width: "25vh", height: "20vh"}} src={selectedProject.img1}/>
+                                    <img style={{width: "25vh", height: "20vh", borderRadius: "5px", boxShadow: "box-shadow: 10px 10px 5px grey;"}} src={selectedProject.img1}/>
                                     <h2>{selectedProject.developer_name}</h2>
                                     {/* <h4>Minimum ${selectedProject.minimum_investment}</h4> */}
                                     <h4>📍 {selectedProject.location}</h4>
