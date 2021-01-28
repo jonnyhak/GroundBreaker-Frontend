@@ -20,7 +20,7 @@ export default function Map(props) {
 
         const [selectedProject, setSelectedProject] = useState(null)
         return (
-            <GoogleMap defaultZoom={12} defaultCenter={{lat: 40.737422, lng: -73.933703}} defaultOptions={{styles: mapStyles}}>
+            <GoogleMap defaultZoom={12} defaultCenter={{lat: 40.737350, lng: -73.933703}} defaultOptions={{styles: mapStyles}}>
                 {props.projects.map((project) => (
                     <Marker 
                         key={project.id} 
@@ -67,7 +67,7 @@ export default function Map(props) {
     const WrappedMap = withScriptjs(withGoogleMap(Map))
 
     return (
-        <div style={{width: '38vw', height: '95vh'}}>
+        <div style={{width: '38vw', height: '83vh'}}>
             <WrappedMap 
                 googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${
                     process.env.REACT_APP_GOOGLE_KEY
