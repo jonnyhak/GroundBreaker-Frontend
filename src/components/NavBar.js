@@ -10,6 +10,9 @@ class NavBar extends Component {
         this.props.logout()
     
     }
+
+    //this comment this out later onn
+    //remember to include event handlers
     
     render() {
         return (
