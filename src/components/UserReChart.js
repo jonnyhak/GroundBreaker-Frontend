@@ -1,9 +1,10 @@
 
 import React from 'react'
-import {PieChart, Pie, Sector, Cell, Tooltip, BarChart, XAxis, YAxis, Legend, CartesianGrid, Bar } from "recharts"
+// import {PieChart, Pie, Sector, Cell, Tooltip, BarChart, XAxis, YAxis, Legend, CartesianGrid, Bar } from "recharts"
+import {PieChart, Pie, Tooltip, BarChart, XAxis, YAxis, Legend, CartesianGrid, Bar } from "recharts"
 import dateFormat from 'dateformat'
 
-let commaNumber = require('comma-number')
+// let commaNumber = require('comma-number')
 
 export default function UserReChart(props) {
     

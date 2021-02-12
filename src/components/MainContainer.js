@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import Projects from './Projects'
 import Signup from './Signup'
 import Login from './Login'
-import ProjectShow from './ProjectShow'
+// import ProjectShow from './ProjectShow'
 
 class MainContainer extends Component {
     
@@ -52,7 +52,7 @@ class MainContainer extends Component {
             <div>
                 {!this.props.currentUser ?
                 <div className="cover">
-                    <img src="/GBCover.jpeg" style={{height: "300px", width: "300px"}}/>
+                    <img src="/GBCover.jpeg" style={{height: "300px", width: "300px"}} alt=""/>
                     <Login users={this.state.users} loginUser={this.loginUser}/>
                     <br/>
                     <h2 style={{color: "white"}}>or</h2>

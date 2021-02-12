@@ -1,8 +1,10 @@
 
-import React, { Component } from 'react'
-import {useParams} from 'react-router-dom'
+// import React, { Component } from 'react'
+import React from 'react'
+// import {useParams} from 'react-router-dom'
 import InvestmentForm from './InvestmentForm'
-import { Line, Circle } from 'rc-progress'
+// import { Line, Circle } from 'rc-progress'
+import { Line } from 'rc-progress'
 import ProjectImageSlider from './ProjectImageSlider'
 import {Link} from 'react-router-dom'
 import dateFormat from 'dateformat'
@@ -60,7 +62,7 @@ class ProjectShow extends React.Component  {
 
     onDelete = (e) => {  
         let id = e.target.value
-        let newInvestments = this.state.investments.filter(inv => inv.id != id)
+        let newInvestments = this.state.investments.filter(inv => inv.id !== id)
         this.setState({investments: newInvestments})
 
         fetch(`http://localhost:3000/investments/${id}`, {

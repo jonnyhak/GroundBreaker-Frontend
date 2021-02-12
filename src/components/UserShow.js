@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
-import UserPieChart from './UserPieChart'
+// import UserPieChart from './UserPieChart'
 import UserReChart from './UserReChart'
 import dateFormat from 'dateformat'
 
@@ -51,7 +51,7 @@ class UserShow extends Component {
 
     onDelete = (e) => {  
         let id = e.target.value
-        let newInvestments = this.state.investments.filter(inv => inv.id != id)
+        let newInvestments = this.state.investments.filter(inv => inv.id !== id)
         this.setState({investments: newInvestments})
 
         fetch(`http://localhost:3000/investments/${id}`, {

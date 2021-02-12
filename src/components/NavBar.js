@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react'
 import {NavLink} from 'react-router-dom'
-import {withRouter} from 'react-router-dom'
+// import {withRouter} from 'react-router-dom'
 
 class NavBar extends Component {
     
@@ -18,7 +18,7 @@ class NavBar extends Component {
         return (
             <nav id="nav">
 
-                <img src="/GBLogo.jpeg" style={{height: "100px", width: "225px"}}/>
+                <img src="/GBLogo.jpeg" style={{height: "100px", width: "225px"}} alt=""/>
                                 
                 {this.props.currentUser ? 
                     <NavLink to={`/users/${this.props.currentUser.id}`}>

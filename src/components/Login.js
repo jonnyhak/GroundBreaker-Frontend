@@ -17,7 +17,7 @@ class Login extends Component {
         e.preventDefault()
 
         let currentUser = this.props.users.find(user => 
-            user.username == this.state.username && user.password == this.state.password
+            user.username === this.state.username && user.password === this.state.password
         )
 
         // this.props.loginUser(this.state)

@@ -1,7 +1,8 @@
 
 import React, { useState } from 'react'
 import {GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow} from "react-google-maps"
-import {BrowserRouter, Link, withRouter} from 'react-router-dom'
+// import {BrowserRouter, Link, withRouter} from 'react-router-dom'
+import {BrowserRouter, Link} from 'react-router-dom'
 import mapStyles from './mapStyles'
 
 
@@ -49,7 +50,7 @@ export default function Map(props) {
                         <BrowserRouter>
                             <Link to={`/projects/${selectedProject.id}`} id={selectedProject.id} currentUser={props.currentUser}>
                                 <div>
-                                    <img style={{width: "25vh", height: "20vh", borderRadius: "5px", boxShadow: "box-shadow: 10px 10px 5px grey;"}} src={selectedProject.img1}/>
+                                    <img style={{width: "25vh", height: "20vh", borderRadius: "5px", boxShadow: "box-shadow: 10px 10px 5px grey;"}} src={selectedProject.img1} alt=""/>
                                     <h2>{selectedProject.developer_name}</h2>
                                     {/* <h4>Minimum ${selectedProject.minimum_investment}</h4> */}
                                     <h4>📍 {selectedProject.location}</h4>

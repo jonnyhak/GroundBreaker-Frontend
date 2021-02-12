@@ -1,4 +1,4 @@
-export default [
+let mapStyles = [
     {
         "featureType": "landscape",
         "stylers": [
@@ -102,3 +102,5 @@ export default [
         ]
     }
 ]
+
+export default mapStyles
