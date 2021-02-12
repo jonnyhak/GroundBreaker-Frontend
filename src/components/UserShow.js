@@ -14,7 +14,7 @@ class UserShow extends Component {
     }
 
     componentDidMount() {
-        fetch(`http://localhost:3000/users/${this.props.match.params.id}`)
+        fetch(`https://groundbreaker-backend-api.herokuapp.com/users/${this.props.match.params.id}`)
         .then(response => {
             return response.json()
         })
@@ -54,7 +54,7 @@ class UserShow extends Component {
         let newInvestments = this.state.investments.filter(inv => inv.id !== id)
         this.setState({investments: newInvestments})
 
-        fetch(`http://localhost:3000/investments/${id}`, {
+        fetch(`https://groundbreaker-backend-api.herokuapp.com/investments/${id}`, {
             method: "DELETE",
         })
     }

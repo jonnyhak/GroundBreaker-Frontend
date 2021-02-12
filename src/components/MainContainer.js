@@ -14,7 +14,7 @@ class MainContainer extends Component {
     }
 
     componentDidMount() {
-        fetch('http://localhost:3000/projects')
+        fetch('https://groundbreaker-backend-api.herokuapp.com/projects')
         .then(response => {
             return response.json()
         })
@@ -24,7 +24,7 @@ class MainContainer extends Component {
             })
         })
 
-        fetch('http://localhost:3000/users')
+        fetch('https://groundbreaker-backend-api.herokuapp.com/users')
         .then(response => {
             return response.json()
         })

@@ -21,7 +21,7 @@ class Signup extends Component {
 
         if (this.state.password === this.state.password_confirmation) {
 
-            fetch('http://localhost:3000/users', {
+            fetch('https://groundbreaker-backend-api.herokuapp.com/users', {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify({

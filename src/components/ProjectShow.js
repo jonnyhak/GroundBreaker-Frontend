@@ -19,7 +19,7 @@ class ProjectShow extends React.Component  {
 
     
     componentDidMount() {
-        fetch(`http://localhost:3000/projects/${this.props.match.params.id}`) //this.routerProps.match.params.id
+        fetch(`https://groundbreaker-backend-api.herokuapp.com/projects/${this.props.match.params.id}`) //this.routerProps.match.params.id
         .then(response => {
             return response.json()
         })
@@ -65,7 +65,7 @@ class ProjectShow extends React.Component  {
         let newInvestments = this.state.investments.filter(inv => inv.id !== id)
         this.setState({investments: newInvestments})
 
-        fetch(`http://localhost:3000/investments/${id}`, {
+        fetch(`https://groundbreaker-backend-api.herokuapp.com/investments/${id}`, {
             method: "DELETE",
         })
     }

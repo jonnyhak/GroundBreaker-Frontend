@@ -19,7 +19,7 @@ class InvestmentForm extends Component {
         
         if (this.state.amount >= this.props.project.minimum_investment) {
 
-            fetch('http://localhost:3000/investments', {
+            fetch('https://groundbreaker-backend-api.herokuapp.com//investments', {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify({
