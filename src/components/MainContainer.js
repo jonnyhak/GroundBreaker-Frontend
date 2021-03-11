@@ -35,20 +35,15 @@ class MainContainer extends Component {
         })
     }
 
-    // loginUser = (userObj) => {
-    //     this.setState({currentUser: userObj})
-    // }
-
     loginUser = (userObj) => {
         this.props.loginUser(userObj)
     }
 
-    
-    
+
     render() {
         console.log(this.state)
         return (
-            //comment back in after testing 
+            
             <div>
                 {!this.props.currentUser ?
                 <div className="cover">

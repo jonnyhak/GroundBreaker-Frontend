@@ -20,10 +20,9 @@ class Login extends Component {
             user.username === this.state.username && user.password === this.state.password
         )
 
-        // this.props.loginUser(this.state)
+        
         
         if (currentUser) {
-            // console.log(currentUser)
             this.props.loginUser(currentUser)
         } else {
             window.alert("IVALID USERNAME OR PASSWORD")

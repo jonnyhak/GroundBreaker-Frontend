@@ -13,7 +13,7 @@ class InvestmentForm extends Component {
         this.setState({[e.target.name]: e.target.value})
     }
 
-    //eventually need automatic rendering withou refresh
+    
     submitHandler = (e) => {
         e.preventDefault()
         
@@ -25,7 +25,7 @@ class InvestmentForm extends Component {
                 body: JSON.stringify({
                     date: new Date(),
                     amount: this.state.amount,
-                    user_id: this.props.currentUser.id, //currently hardcoded
+                    user_id: this.props.currentUser.id, 
                     project_id: this.props.project.id
                 })
             })
@@ -41,7 +41,7 @@ class InvestmentForm extends Component {
     
     
     render() {
-        // console.log(this.props) 
+         
         return (
             <div onSubmit={this.submitHandler}>
                 {/* <Popup trigger={<div className="btn-div"><button > Invest </button></div>} position="center"> */}
